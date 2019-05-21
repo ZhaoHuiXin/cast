@@ -830,6 +830,8 @@ func ToStringE(i interface{}) (string, error) {
 		return strconv.FormatInt(int64(s), 10), nil
 	case []byte:
 		return string(s), nil
+	case time.Time:
+		return s.Format("2006-01-02 15:04:05")
 	case template.HTML:
 		return string(s), nil
 	case template.URL:
